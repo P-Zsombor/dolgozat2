@@ -39,10 +39,13 @@ namespace dolgozat2
             };
             listBox1.SelectedIndexChanged += (s, e) =>
             {
-                List<pekaru> list = db.readAll();
-                textBox1.Text = list[listBox1.SelectedIndex].nev;
-                numericUpDown1.Value = list[listBox1.SelectedIndex].db;
-                numericUpDown2.Value = list[listBox1.SelectedIndex].ar;
+                if (listBox1.SelectedIndex >= 0)
+                {
+                    List<pekaru> list = db.readAll();
+                    textBox1.Text = list[listBox1.SelectedIndex].nev;
+                    numericUpDown1.Value = list[listBox1.SelectedIndex].db;
+                    numericUpDown2.Value = list[listBox1.SelectedIndex].ar;
+                }
             };
         }
         void read()
